@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35349faad0b342d08e398ec2fd47a491, type: 3}
+  m_Name: PoolSettings
+  m_EditorClassIdentifier: 
+  PoolData:
+  - PoolName: Ball
+    _object: {fileID: 32127653810359165, guid: 575488a875d02c84eb78b21a04e7dad3, type: 3}
+    StartingAmount: 2000
