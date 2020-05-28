@@ -15,4 +15,4 @@ MonoBehaviour:
   PoolData:
   - PoolName: Ball
     _object: {fileID: 32127653810359165, guid: 575488a875d02c84eb78b21a04e7dad3, type: 3}
-    StartingAmount: 2000
+    StartingAmount: 20

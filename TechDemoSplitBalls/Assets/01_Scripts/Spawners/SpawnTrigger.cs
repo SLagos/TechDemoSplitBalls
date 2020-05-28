@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Utils.PoolSystem;
 
 namespace GameSystem.Spawn
 {
@@ -16,6 +17,8 @@ namespace GameSystem.Spawn
         /// <param name="other">The ball entering the trigger</param>
         private void OnTriggerEnter(Collider other)
         {
+            PoolManager.Instance.Dispose(other.transform.parent.gameObject,EPools.Ball);
+            Level.Instance.RemoveBall(other.transform.parent.gameObject);
             _spawner.Spawn();
         }
     }

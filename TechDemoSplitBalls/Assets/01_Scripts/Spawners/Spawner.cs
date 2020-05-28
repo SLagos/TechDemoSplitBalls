@@ -36,8 +36,10 @@ namespace GameSystem.Spawn
 
         private int _objectsToSpawn;
 
-        public void Spawn()
+        public void Spawn(int amount = 0)
         {
+            if (amount > 0)
+                _amountToSpawn = amount;
             if (_amountToSpawn < _settings.SpawnSafeTreshHold)
             {
                 ImmediateSpawnObject();
@@ -58,7 +60,10 @@ namespace GameSystem.Spawn
         /// </summary>
         private void ImmediateSpawnObject()
         {
-            PoolManager.Instance.Instantiate(_objectToSpawn, _spawnPoint.transform.position);
+            for (int i = 0; i < _amountToSpawn; i++)
+            {
+                Level.Instance.AddBall(PoolManager.Instance.Instantiate(_objectToSpawn, _spawnPoint.transform.position,Level.Instance.transform));
+            }
         }
         /// <summary>
         /// Mehtod to call when the amount of item to spawn are more
@@ -74,11 +79,10 @@ namespace GameSystem.Spawn
             // we add that amount to the routine running, otherwise we create a new one
             while (_objectsToSpawn > 0) 
             {
-                PoolManager.Instance.Instantiate(_objectToSpawn, _spawnPoint.transform.position);
+                Level.Instance.AddBall(PoolManager.Instance.Instantiate(_objectToSpawn, _spawnPoint.transform.position,Level.Instance.transform));
                 --_objectsToSpawn;
                 ++iterations;
-                if (iterations >= _settings.SpawnsPerFrame)
-                    yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(_settings.SpawnRate);
             }
             yield return null;
             _spawnRoutine = null;

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
-using UnityEditor;
-using UnityEditor.Experimental.TerrainAPI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Utils.PoolSystem
 {
@@ -19,11 +16,13 @@ namespace Utils.PoolSystem
         public struct PoolDataStruct
         {
             public string PoolName;
-            public GameObject _object;
+            [FormerlySerializedAs("_object")] public GameObject Object;
             public int StartingAmount;
         }
 
         public List<PoolDataStruct> PoolData;
+
+        public Dictionary<string, PoolDataStruct> Data;
 
         public void OnBeforeSerialize()
         {
@@ -35,8 +34,10 @@ namespace Utils.PoolSystem
             //In here i will take the list of data struct and create an enum with that data, to be call later on the
             //pool manager
             List<string> pools = new List<string>();
+            Data = new Dictionary<string, PoolDataStruct>();
             foreach (var data in PoolData)
             {
+                Data.Add(data.PoolName,data);
                 if (!pools.Contains(data.PoolName))
                     pools.Add(data.PoolName);
                 else

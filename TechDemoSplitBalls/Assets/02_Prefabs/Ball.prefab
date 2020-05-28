@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4102852047233819034}
   - component: {fileID: 3981068964462110512}
-  m_Layer: 0
+  - component: {fileID: -3323723461754175533}
+  m_Layer: 8
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 32127653810359165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2920585990588310022}
   - {fileID: 5842231788615922017}
@@ -42,13 +43,29 @@ Rigidbody:
   m_GameObject: {fileID: 32127653810359165}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.2
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 8
+  m_CollisionDetection: 1
+--- !u!114 &-3323723461754175533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32127653810359165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ea676caf91e214ba8eaba86a07c485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _maxSpeed: 30
+  Rigidbody: {fileID: 3981068964462110512}
+  Collider: {fileID: 6343571267711838754}
 --- !u!1 &4304811042386982966
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +77,7 @@ GameObject:
   - component: {fileID: 5842231788615922017}
   - component: {fileID: 7101233371259978831}
   - component: {fileID: 6842073571069453935}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920585990588310022}
   - component: {fileID: 6343571267711838754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +183,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7504967355883270358}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e9796313490aed541bba3d1d0e8f82b6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

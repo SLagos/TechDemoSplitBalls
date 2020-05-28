@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63b4750367f0af4ca840481875abea4, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  SpawnSafeTreshHold: 10
-  SpawnsPerFrame: 0
+  SpawnSafeTreshHold: 0
+  SpawnRate: 0.2

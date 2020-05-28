@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GameSystem.Settings
 {
@@ -9,7 +10,7 @@ namespace GameSystem.Settings
     public class SettingsScriptableObject : ScriptableObject
     {
         public int SpawnSafeTreshHold;
-        public int SpawnsPerFrame;
+        public float SpawnRate;
     }
 }
 
